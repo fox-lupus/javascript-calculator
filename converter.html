@@ -20,14 +20,23 @@
 
         // takes number form button and adds it to a string storging on side of the eqeation. 
         function addnumberstring(add, two) {
-            
+             
             var temp = bonk.toString()
             
+           if(temp == "0"){
+
+                cut = temp.length -1;
+
+                temp = temp.slice(0, cut); 
+            }
+
             var outstring = temp + add;
 
             console.log(outstring);
 
-            bonk = outstring
+            bonk = outstring;
+
+            document.getElementById("output").innerHTML = outstring;
 
             return outstring; 
         }
@@ -40,7 +49,7 @@
 <body>
     <h1 id="Display"></h1>
 
-    <span class="input">    </span>
+    <span class="input" id="output"></span> <br>
     
     <button onclick = "addnumberstring(1)">1</button>
     <button onclick = "addnumberstring(2)">2</button>

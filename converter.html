@@ -2,48 +2,58 @@
 <html>
 <head>
     <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta http-equiv='X-UA-Compatible'>
     <title>auto converion table</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <style>
         body {
             margin:0;
         }
+        input {
+            border: 1px;
+            margin: 5px;
+        }
     </style>
-    <script> 
-    var users = 800;
-    var number = 120;
+    <script>
+        var basenumber 
+        var bonk = 0;
+
+        // takes number form button and adds it to a string storging on side of the eqeation. 
+        function addnumberstring(add, two) {
+            
+            var temp = bonk.toString()
+            
+            var outstring = temp + add;
+
+            console.log(outstring);
+
+            bonk = outstring
+
+            return outstring; 
+        }
+
+       // output = number oprater users;
+
+        console.log(bonk);
     </script>
 </head>
 <body>
     <h1 id="Display"></h1>
 
-    <button>1</button>
-    <button>2</button>
-    <button>3</button>
-    <button>4</button>
-    <button>5</button>
-    <button>6</button>
-    <button>7</button>
-    <button>8</button>
-    <button>9</button>
-    <button>0</button>
+    <span class="input">    </span>
     
-    <script>
-        var basenumber 
-        var bonk
+    <button onclick = "addnumberstring(1)">1</button>
+    <button onclick = "addnumberstring(2)">2</button>
+    <button onclick = "addnumberstring(3)">3</button><br>
+    <button onclick = "addnumberstring(4)">4</button>
+    <button onclick = "addnumberstring(5)">5</button>
+    <button onclick = "addnumberstring(6)">6</button><br>
+    <button onclick = "addnumberstring(7)">7</button>
+    <button onclick = "addnumberstring(8)">8</button>
+    <button onclick = "addnumberstring(9)">9</button><br>
+    <button onclick = "addnumberstring(0)">0</button>
+    
 
-        
-        function addnumberstring() {
-            
-        }
-
-
-
-       // output = number oprater users;
-        document.getElementById("Display").innerHTML = combine;
-        console.log(5);
-    </script>
     
     <!--<p id="demo" onclick="myFunction()">Click me.</p>
 

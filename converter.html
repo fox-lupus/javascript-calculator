@@ -9,21 +9,32 @@
         body {
             margin:0;
         }
-        input {
-            border: 1px;
-            margin: 5px;
+        .display {
+            border: 1px solid;
+            border-color: #000;
+            margin: 5px 5px 5px 0px;
+            font-size: 20px;
+        }
+        button {
+            height: 30px;
+            width: 30px;
         }
     </style>
     <script>
         var basenumber 
         var bonk = 0;
 
+        function a() {
+
+        }
+
         // takes number form button and adds it to a string storging on side of the eqeation. 
-        function addnumberstring(add, two) {
+        function addnumberstring(add) {
              
             var temp = bonk.toString()
             
-           if(temp == "0"){
+            //this more genius then i realzed
+            if(temp == "0"){
 
                 cut = temp.length -1;
 
@@ -36,9 +47,13 @@
 
             bonk = outstring;
 
-            document.getElementById("output").innerHTML = outstring;
+            displaynumber(outstring);
 
             return outstring; 
+        }
+        // displays number to output span
+        function displaynumber(number) {
+            document.getElementById("output").innerHTML = number;
         }
 
        // output = number oprater users;
@@ -47,19 +62,21 @@
     </script>
 </head>
 <body>
-    <h1 id="Display"></h1>
 
-    <span class="input" id="output"></span> <br>
+    <span class="display" id="output"></span> <br>
     
     <button onclick = "addnumberstring(1)">1</button>
     <button onclick = "addnumberstring(2)">2</button>
-    <button onclick = "addnumberstring(3)">3</button><br>
+    <button onclick = "addnumberstring(3)">3</button> 
+    <button onclick = "">+</button> <br>
     <button onclick = "addnumberstring(4)">4</button>
     <button onclick = "addnumberstring(5)">5</button>
-    <button onclick = "addnumberstring(6)">6</button><br>
+    <button onclick = "addnumberstring(6)">6</button>
+    <button onclick = "">-</button> <br>
     <button onclick = "addnumberstring(7)">7</button>
     <button onclick = "addnumberstring(8)">8</button>
-    <button onclick = "addnumberstring(9)">9</button><br>
+    <button onclick = "addnumberstring(9)">9</button>
+    <button onclick = "">*</button> <br>
     <button onclick = "addnumberstring(0)">0</button>
     
 

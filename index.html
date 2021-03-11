@@ -33,13 +33,20 @@
             if(opration == 0){
                 outstring = secnum + bonk
             }
-           
-            if(opration == 1){
+            else {
+                if(opration == 1){
                 outstring = secnum - bonk
+                }
+                else {
+                    if(opration == 2){
+                    outstring = secnum * bonk
+                    }
+                }
             }
-            if(opration == 2){
-                outstring = secnum * bonk
-            }
+            
+
+            
+
             console.log(secnum);
             displaystring(outstring);
         }

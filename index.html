@@ -33,7 +33,7 @@
             height: 80vh;
             display: inline-grid;
             float: right;
-            grid-gap: 0px;
+            grid-gap: 2.5px;
             grid-template-columns: auto auto auto;
 
         }
@@ -42,6 +42,7 @@
         var secnum
         var bonk = 0;
         var opration
+        var display
 
         function cal() {
             //string to number
@@ -61,9 +62,18 @@
                     }
                 }
             }
+            if(secnum == NaN){
+                displaystring(bonk);
+                console.log(bonk); 
+            }
+            else{
+                displaystring(outstring);
+                console.log(outstring);
+                bonk = outstring;    
+            }
             
-            console.log(secnum);
-            displaystring(outstring);
+            display = undefined;
+
         }
         function combine(e) {
             secnum = bonk;
@@ -71,8 +81,7 @@
             opration = e;
             special = ["+","-","*"]
 
-            var outstring
-
+            display = secnum + " " + special[e];
             displaystring(secnum + " " + special[e]);
 
         }
@@ -96,17 +105,33 @@
 
             bonk = outstring;
 
+            if(display != undefined) {
+                outstring = display + " " + outstring;
+            }
+
             displaystring(outstring);
 
             return outstring; 
         }
+
         // displays number to output span
-        function displaystring(number) {
-            document.getElementById("output").innerHTML = number;
+        function displaystring(e) {
+            var temp = e.toString()
+
+            document.getElementById("output").innerHTML = temp;
         }
 
-       // output = number oprater users;
+        function clear(e) {
+            bonk = 0;
+            secnum = 0;
+            display = NaN;
 
+            displaystring(" ");
+            console.log("clear"+ e);
+        }
+
+
+       // output = number oprater users;
         console.log(bonk);
     </script>
 </head>
@@ -125,15 +150,11 @@
 
         <button onclick = "addnumberstring(3)">3</button> 
 
-        <button onclick = "combine(0)">+</button>
-
         <button onclick = "addnumberstring(4)">4</button>
 
         <button onclick = "addnumberstring(5)">5</button>
 
         <button onclick = "addnumberstring(6)">6</button>
-
-        <button onclick = "combine(1)">-</button>
 
         <button onclick = "addnumberstring(7)">7</button>
 
@@ -141,11 +162,17 @@
 
         <button onclick = "addnumberstring(9)">9</button>
 
-        <button onclick = "combine(2)">*</button>
-
         <button onclick = "addnumberstring(0)">0</button>
 
+        <button onclick = "combine(0)">+</button>
+
+        <button onclick = "combine(1)">-</button>
+
+        <button onclick = "combine(2)">*</button>
+
         <button onclick = "cal()">=</button>
+
+        <button onclick = "clear(0)">CE</button>
     </div>
     <!---
     <span class="display" id="output"></span> <br>

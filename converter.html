@@ -21,10 +21,37 @@
         }
     </style>
     <script>
-        var basenumber 
+        var secnum
         var bonk = 0;
+        var opration
 
-        function a() {
+        function cal() {
+            //string to number
+            bonk = parseInt(bonk);
+            secnum = parseInt(secnum); 
+            var outstring
+            if(opration == 0){
+                outstring = secnum + bonk
+            }
+           
+            if(opration == 1){
+                outstring = secnum - bonk
+            }
+            if(opration == 2){
+                outstring = secnum * bonk
+            }
+            console.log(secnum);
+            displaystring(outstring);
+        }
+        function combine(e) {
+            secnum = bonk;
+            bonk = 0;
+            opration = e;
+            special = ["+","-","*"]
+
+            var outstring
+
+            displaystring(secnum + " " + special[e]);
 
         }
 
@@ -33,7 +60,7 @@
              
             var temp = bonk.toString()
             
-            //this more genius then i realzed
+            //this stops multble zeros from being add and clears a zero when a diffent number is added
             if(temp == "0"){
 
                 cut = temp.length -1;
@@ -47,12 +74,12 @@
 
             bonk = outstring;
 
-            displaynumber(outstring);
+            displaystring(outstring);
 
             return outstring; 
         }
         // displays number to output span
-        function displaynumber(number) {
+        function displaystring(number) {
             document.getElementById("output").innerHTML = number;
         }
 
@@ -68,16 +95,17 @@
     <button onclick = "addnumberstring(1)">1</button>
     <button onclick = "addnumberstring(2)">2</button>
     <button onclick = "addnumberstring(3)">3</button> 
-    <button onclick = "">+</button> <br>
+    <button onclick = "combine(0)">+</button> <br>
     <button onclick = "addnumberstring(4)">4</button>
     <button onclick = "addnumberstring(5)">5</button>
     <button onclick = "addnumberstring(6)">6</button>
-    <button onclick = "">-</button> <br>
+    <button onclick = "combine(1)">-</button> <br>
     <button onclick = "addnumberstring(7)">7</button>
     <button onclick = "addnumberstring(8)">8</button>
     <button onclick = "addnumberstring(9)">9</button>
-    <button onclick = "">*</button> <br>
+    <button onclick = "combine(2)">*</button> <br>
     <button onclick = "addnumberstring(0)">0</button>
+    <button onclick = "cal()">=</button>
     
 
     

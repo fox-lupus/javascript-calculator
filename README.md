@@ -1,4 +1,3 @@
-https://lucid.app/lucidchart/invitations/accept/8c20d734-94b9-4b09-9bdf-48f855f003f7 link to flowchart
 https://github.com/fox-lupus/javascript-calculator link to github repo
 https://www.w3schools.com/js/default.asp documentation I have been fallowing
 

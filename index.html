@@ -10,18 +10,30 @@
             margin:0;
             font: normal normal;
             font-family:arial;
+            background-color: #282828;
+            min-height: 334px;
         }
         .display {
             border: 1px solid;
             border-color: #000;
-            font-size: 500%;
-            height: 20vh;
+            font-size: 10vw;
+            height: 19vh;
             text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #363636;
+            
+        }
+        .display span {
+
         }
         button {
             height: 100%;
             width: 100%;
             font-size: 150%;
+            background-color: #969696;
+            border: #aaa;
 
         }
         .leftcon {
@@ -35,7 +47,7 @@
             height: 80vh;
             display: inline-grid;
             float: right;
-            grid-gap: 2.5px;
+            grid-gap: 1px;
             grid-template-columns: auto auto auto;
 
         }
@@ -92,7 +104,7 @@
             else{
                 displaystring(outstring);
                 console.log(outstring);
-                if(outstring == ""){
+                if(outstring != ""){
                     bonk = outstring;   
                 } 
             }
@@ -102,9 +114,9 @@
         }
         function combine(e) {
             secnum = bonk;
-            bonk = 0;
+            bonk = 0.;
             opration = e;
-            special = ["+","-","*", "×", "pow",]
+            special = ["+","-","×", "/", "pow",]
 
             display = secnum + " " + special[e];
             displaystring(secnum + " " + special[e]);
@@ -159,7 +171,8 @@
 </head>
 <body>
 
-    <div class="display" id="output">
+    <div class="display">
+        <span id = "output"> </span>
 
     </div>
     <div class="rightcon">
@@ -190,23 +203,23 @@
 
         <button onclick = "combine(3)">÷</button>
 
-        <button onclick = "addnumberstring(1)">1</button>
+        <button onclick = "addnumberstring(1.)">1</button>
 
-        <button onclick = "addnumberstring(2)">2</button>
+        <button onclick = "addnumberstring(2.)">2</button>
 
-        <button onclick = "addnumberstring(3)">3</button> 
+        <button onclick = "addnumberstring(3.)">3</button> 
 
-        <button onclick = "addnumberstring(4)">4</button>
+        <button onclick = "addnumberstring(4.)">4</button>
 
-        <button onclick = "addnumberstring(5)">5</button>
+        <button onclick = "addnumberstring(5.)">5</button>
 
-        <button onclick = "addnumberstring(6)">6</button>
+        <button onclick = "addnumberstring(6.)">6</button>
 
-        <button onclick = "addnumberstring(7)">7</button>
+        <button onclick = "addnumberstring(7.)">7</button>
 
-        <button onclick = "addnumberstring(8)">8</button>
+        <button onclick = "addnumberstring(8.)">8</button>
 
-        <button onclick = "addnumberstring(9)">9</button>
+        <button onclick = "addnumberstring(9.)">9</button>
 
         <button onclick = "addnumberstring(0)">0</button>
 

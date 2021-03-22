@@ -8,25 +8,28 @@
     <style>
         body {
             margin:0;
-            font: normal normal;
+            font: ;
             font-family:arial;
             background-color: #282828;
             min-height: 334px;
+            color: #fff;
         }
         .display {
             border: 1px solid;
             border-color: #000;
-            font-size: 10vw;
+            font-size: 10vh;
             height: 19vh;
             text-align: center;
             display: flex;
             justify-content: center;
             align-items: center;
             background-color: #363636;
+            overflow-x:auto;
             
         }
-        .display span {
-
+        .display span { 
+            margin-left: 15px;
+            margin-right: 15px;
         }
         button {
             height: 100%;
@@ -34,7 +37,13 @@
             font-size: 150%;
             background-color: #969696;
             border: #aaa;
+            border: .5px solid #aaa ;
+            border-radius: 2px;
+            padding: 2.5px;
 
+        }
+        button:active {
+            background-color: #a8a8a8
         }
         .leftcon {
             /* width: 39vw; */
@@ -51,6 +60,12 @@
             grid-template-columns: auto auto auto;
 
         }
+        @media only screen and (min-width: 350px) {
+            .rightcon{
+                grid-gap: 3px;
+            }
+        }
+}
     </style>
     <script>
         var secnum
@@ -69,8 +84,8 @@
 
         function cal() {
             //string to number
-            bonk = parseInt(bonk);
-            secnum = parseInt(secnum); 
+            bonk = parseFloat(bonk);
+            secnum = parseFloat(secnum); 
             var outstring
             if(opration == 0){
                 outstring = secnum + bonk
@@ -96,6 +111,14 @@
             if(opration == 4) {
                 outstring = Math.pow(secnum, bonk)
             }
+
+            if(opration == 5) {
+                outstring = Math.abs(secnum)
+            }
+            if(opration == 6) {
+                outstring = Math.log(secnum);
+                console.log(outstring);
+            }
                     
             if(secnum == NaN){
                 displaystring(bonk);
@@ -116,7 +139,7 @@
             secnum = bonk;
             bonk = 0.;
             opration = e;
-            special = ["+","-","×", "/", "pow",]
+            special = ["+","-","×", "/", "pow","|χ|", "log"]
 
             display = secnum + " " + special[e];
             displaystring(secnum + " " + special[e]);
@@ -144,9 +167,10 @@
 
             if(display != undefined) {
                 outstring = display + " " + outstring;
+                displaystring(outstring);
             }
 
-            displaystring(outstring);
+            
 
             return outstring; 
         }
@@ -160,6 +184,18 @@
         function  setnum(e) {
             bonk = e;
             displaystring(bonk)
+        }
+        function negate() {
+            
+            if(secnum != 0){
+                bonk = bonk * -1;
+                displaystring(bonk)
+            }
+            else {
+                secnum = secnum * -1;
+                displaystring(display)
+            }
+            
         }
 
 
@@ -177,9 +213,13 @@
     </div>
     <div class="rightcon">
 
+
+
         <button onclick = "setnum(Math.E)">e</button>
         
         <button onclick = "setnum(Math.PI)">π</button>
+
+        <button onclick = "cl()"> CE </button>        
         
         <button onclick = "">sin</button>
 
@@ -187,13 +227,13 @@
 
         <button onclick = "">tan</button>
 
-        <button onclick = "">log</button>
+        <button onclick = "combine(6)">log</button>
 
-        <button onclick = "">|χ|</button>
+        <button onclick = "combine(5)">|χ|</button>
 
         <button onclick = "combine(4)">pow</button>
 
-        <button onclick = "">+/-</button>
+        <button onclick = "negate()">+/-</button>
 
         <button onclick = "combine(0)">+</button>
 
@@ -227,7 +267,7 @@
         
         <button onclick = "cal()">=</button>
         
-        <button onclick = "cl()"> CE </button>
+        
     </div>
     <!---
     <span class="display" id="output"></span> <br>

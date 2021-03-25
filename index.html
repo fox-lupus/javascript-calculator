@@ -69,12 +69,12 @@
     </style>
     <script>
         var secnum
-        var bonk = 0.;
+        var firstnum = 0.;
         var opration
         var display
 
         function cl() {
-            bonk = 0.;
+            firstnum = 0.;
             secnum = 0.;
             display = undefined;
 
@@ -84,32 +84,32 @@
 
         function cal() {
             //string to number
-            bonk = parseFloat(bonk);
+            firstnum = parseFloat(firstnum);
             secnum = parseFloat(secnum); 
             var outstring
             if(opration == 0){
-                outstring = secnum + bonk
+                outstring = secnum + firstnum
             }
             
             if(opration == 1){
-            outstring = secnum - bonk
+            outstring = secnum - firstnum
             }    
 
             if(opration == 2){
-            outstring = secnum * bonk
+            outstring = secnum * firstnum
             }
             
             if(opration == 3){
-                if(bonk == 0){
+                if(firstnum == 0){
                     outstring = "can't Divide by zero"
                 }
                 else{
-                    outstring = secnum / bonk;
+                    outstring = secnum / firstnum;
                 }  
             }
                     
             if(opration == 4) {
-                outstring = Math.pow(secnum, bonk)
+                outstring = Math.pow(secnum, firstnum)
             }
 
             if(opration == 5) {
@@ -121,14 +121,14 @@
             }
                     
             if(secnum == NaN){
-                displaystring(bonk);
-                console.log(bonk); 
+                displaystring(firstnum);
+                console.log(firstnum); 
             }
             else{
                 displaystring(outstring);
                 console.log(outstring);
                 if(outstring != ""){
-                    bonk = outstring;   
+                    firstnum = outstring;   
                 } 
             }
             
@@ -136,8 +136,8 @@
 
         }
         function combine(e) {
-            secnum = bonk;
-            bonk = 0.;
+            secnum = firstnum;
+            firstnum = 0.;
             opration = e;
             special = ["+","-","×", "/", "pow","|χ|", "log"]
 
@@ -149,7 +149,7 @@
         // takes number form button and adds it to a string storging on side of the eqeation. 
         function addnumberstring(add) {
              
-            var temp = bonk.toString()
+            var temp = firstnum.toString()
     
             //this stops multble zeros from being add and clears a zero when a diffent number is added
             if(temp == "0"){
@@ -163,7 +163,7 @@
 
             console.log(outstring);
 
-            bonk = outstring;
+            firstnum = outstring;
 
             if(display != undefined) {
                 outstring = display + " " + outstring;
@@ -182,14 +182,14 @@
             document.getElementById("output").innerHTML = temp;
         }
         function  setnum(e) {
-            bonk = e;
-            displaystring(bonk)
+            firstnum = e;
+            displaystring(firstnum)
         }
         function negate() {
             
             if(secnum != 0){
-                bonk = bonk * -1;
-                displaystring(bonk)
+                firstnum = firstnum * -1;
+                displaystring(firstnum)
             }
             else {
                 secnum = secnum * -1;
@@ -202,7 +202,7 @@
 
 
        // output = number oprater users;
-        console.log(bonk);
+        console.log(firstnum);
     </script>
 </head>
 <body>

@@ -68,9 +68,9 @@
 }
     </style>
     <script>
-        var secnum
-        var firstnum = 0.;
-        var opration
+        var secnum = 0;
+        var firstnum = 0;
+        var opration = 0;
         var display
 
         function cl() {
@@ -83,23 +83,30 @@
         }
 
         function cal() {
+            
+            if(opration == 0){
+                return(1);
+            }
             //string to number
             firstnum = parseFloat(firstnum);
             secnum = parseFloat(secnum); 
-            var outstring
-            if(opration == 0){
+            var outstring;
+
+            
+
+            if(opration == 1){
                 outstring = secnum + firstnum
             }
             
-            if(opration == 1){
+            if(opration == 2){
             outstring = secnum - firstnum
             }    
 
-            if(opration == 2){
+            if(opration == 3){
             outstring = secnum * firstnum
             }
             
-            if(opration == 3){
+            if(opration == 4){
                 if(firstnum == 0){
                     outstring = "can't Divide by zero"
                 }
@@ -108,26 +115,26 @@
                 }  
             }
                     
-            if(opration == 4) {
+            if(opration == 5) {
                 outstring = Math.pow(secnum, firstnum)
             }
 
-            if(opration == 5) {
+            if(opration == 6) {
                 outstring = Math.abs(secnum)
             }
-            if(opration == 6) {
+            if(opration == 7) {
                 outstring = Math.log(secnum);
                 console.log(outstring);
             }
-            if(opration == 7){
+            if(opration == 8){
                 outstring = Math.tan(secnum);
                 console.log(outstring);
             }
-            if(opration == 8){
+            if(opration == 9){
                 outstring = Math.sin(secnum);
                 console.log(outstring);
             }
-            if(opration == 9){
+            if(opration == 10){
                 outstring = Math.cos(secnum);
                 console.log(outstring);
             }                    
@@ -135,21 +142,23 @@
                 displaystring(firstnum);
                 console.log(firstnum); 
             }
-            else{
+            else{ 
                 displaystring(outstring);
                 console.log(outstring);
                 if(outstring != ""){
-                    firstnum = outstring;   
+                    firstnum = outstring;
+                      
                 } 
             }
             
             display = undefined;
+            opration = 0;
 
         }
         function combine(e) {
             secnum = firstnum;
             firstnum = 0.;
-            opration = e;
+            opration = e + 1;
             special = ["+","-","×", "/", "pow","|χ|", "log","tan(","sin(","cos("]
 
             if(opration <= 6){
@@ -164,9 +173,9 @@
 
         // takes number form button and adds it to a string storging on side of the eqeation. 
         function addnumberstring(add) {
-             
-            var temp = firstnum.toString()
-    
+            var outstring;
+            var temp = firstnum.toString();
+ 
             //this stops multble zeros from being add and clears a zero when a diffent number is added
             if(temp == "0"){
 
@@ -174,19 +183,32 @@
 
                 temp = temp.slice(0, cut); 
             }
-
-            var outstring = temp + add;
-
-            console.log(outstring);
+            
+            DotTest = temp.indexOf(".");
+  
+            if(DotTest == -1){
+            outstring = temp + add;
+            console.log("U");
+            }
+            else if(DotTest == 1){
+                outstring = temp + add;
+                console.log("B");
+            }
+            else{
+                return;
+            }
 
             firstnum = outstring;
+
+            console.log(outstring);
 
             if(display != undefined) {
                 outstring = display + " " + outstring;
                 displaystring(outstring);
             }
             else{
-                displaystring(outstring)
+                displaystring(outstring);
+
             }
 
             
@@ -263,21 +285,21 @@
         <button onclick = "combine(3)">÷</button>
 
         <button onclick = "addnumberstring(1.)">1</button>
-
+ 
         <button onclick = "addnumberstring(2.)">2</button>
-
+ 
         <button onclick = "addnumberstring(3.)">3</button> 
-
+ 
         <button onclick = "addnumberstring(4.)">4</button>
-
+ 
         <button onclick = "addnumberstring(5.)">5</button>
 
         <button onclick = "addnumberstring(6.)">6</button>
-
+ 
         <button onclick = "addnumberstring(7.)">7</button>
-
+ 
         <button onclick = "addnumberstring(8.)">8</button>
-
+ 
         <button onclick = "addnumberstring(9.)">9</button>
 
         <button onclick = "addnumberstring(0)">0</button>

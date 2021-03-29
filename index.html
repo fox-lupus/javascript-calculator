@@ -184,19 +184,19 @@
                 temp = temp.slice(0, cut); 
             }
             
-            DotTest = temp.indexOf(".");
+            // DotTest = temp.indexOf(".");
   
-            if(DotTest == -1){
-            outstring = temp + add;
-            console.log("U");
-            }
-            else if(DotTest == 1){
-                outstring = temp + add;
-                console.log("B");
-            }
-            else{
-                return;
-            }
+            // if(DotTest == -1){
+            // outstring = temp + add;
+
+            // outstring = parseFloat(outstring)
+            // }
+            // else{
+            //     outstring = temp + add;
+            // }
+
+            
+            outstring = temp + add
 
             firstnum = outstring;
 
@@ -304,7 +304,7 @@
 
         <button onclick = "addnumberstring(0)">0</button>
 
-        <button onclick = "addnumberstring('.')">.</button>
+        <!-- <button onclick = "addnumberstring('.')">.</button> -->
         
         <button onclick = "cal()">=</button>
         
